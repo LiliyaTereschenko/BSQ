@@ -19,8 +19,10 @@
 # include <unistd.h>
 # define BUFF_SIZE 4096
 
-int     ft_atoi(char *str);
-int     count_digits(int d);
-char    *ft_read_map(int ret, int fd, char *buf);
+//int     ft_atoi(char *str);
+//int     count_digits(int d);
+char	*ft_read_file(int fd)
+char	*add_memory_concat_str(char *s1, char *s2)
+int		ft_strlen(char *str)
 #endif
 

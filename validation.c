@@ -11,62 +11,74 @@
 /* ************************************************************************** */
 
 #include "header.h"
-
-char	*ft_read_map(int ret, int fd, char *buf)
+check_input_map(char *str)
 {
-	while ((ret = read(fd, buf, BUFF_SIZE)))
-		buf[ret] = '\0';
-	return (buf);
-}
-
-char	**ft_make_array(char *buf)
-{
-
 
 }
 
-ft_validate(char *buf)
+int check_width(*str)
 {
-	int  
+    int width;
+    int width_counter;
+    while (*str != '\n')
+        str++;
+    str++;
+    while (*str != '\n')
+    {
+        width++;
+        str++;
+    }
+    str++;
+    while (*str != '\0')
+    {
+        while (*str != '\n')
+        {
+            width_counter++;
+            str++;
+        }
+        if (width != width_counter)
+            return (0);
+        str++;
+    }
 
 }
 
-int		main(int argc, char **argv)
+int check_line_count(*str)
 {
-	int		fd;
-	int		ret;
-	int		i;
-	char	buf[BUFF_SIZE + 1];
-	int		number_of_strings;
-	char	obstacle;
-	char	answer;
-	number_of_strings = 0;
-	ret = 0;
-	i = 1;
-	if (argc == 1)
-		write(2, "map error\n", 10);
-	else 
-	{
-		while (i < argc)
-		{
-			fd = open(argv[i], O_RDONLY);
-			if (fd == -1)
-			{
-				write(2, "map error\n", 10);
-				return (0);
-			}
-			if (fd)
-			{
-				buf = ft_read_map(ret, fd, buf);
-				number_of_strings = atoi(buf);
-				buff = buff + count_digits(number_of_strings);
-				obstacle = buff;
-				ft_validate(&buf);
-						
-			}
-			close(fd);
-			i++;
-		}
-	}
-	return (0);
+    int line_counter;
+    int lines;
+
+    line_counter = 0;
+    lines = ft_atoi(str);
+    while (*str != '\n')
+        str++;
+    str++;
+    while (*str != '\0')
+    {
+        if (*str == '\n')
+            line_counter++;
+        str++;
+    }
+    if (lines != line_counter)
+        return (0);
+    else
+        return (1);
+}
+
+int check_first_line(*str)
+{
+    if (ft_atoi(str) <= 0)
+        return (0);
+    else
+        str = str + count_digits(ft_atoi(str));
+    if (*str != '.')
+        return (0);
+    else
+        str++;
+    if (!(((*str >= 'a' && *str <= 'z') || (*str >= 'A' && *str <= 'Z')) &&
+        ((*(str++) >= 'a' && *(str++) <= 'z') || (*(str++) >= 'A' && *(str++) <= 'Z')) &&
+            (*(str+2) == '\n')))
+            return (0);
+    //str = str + 3;
+    return (1);
 }
