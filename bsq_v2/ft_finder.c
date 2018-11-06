@@ -12,7 +12,7 @@
 
 #include "header.h"
 
-void    ft_finder(int **arr, int len, int width)
+void 	ft_finder(int **arr, int len, int width)
 {
 	int j;
 	int i;
@@ -26,42 +26,29 @@ void    ft_finder(int **arr, int len, int width)
 	I = 0;
 	J = 0;
 	
-	i = len - 2;
+	i = len - 1;
 	while (i >= 0)
 	{                                               //main block
 		j = width - 1;
 		while (j >= 0)
-		{
-			min = arr[i][j + 1];
-			if (arr[i + 1][j] < min)
-				min = arr[i + 1][j];
-			if (arr[i + 1][j + 1] < min)
-				min = arr[i + 1][j + 1];
-			arr[i][j] = min + arr[i][j];
-            if (arr[i][j] >= arr[I][J])
-            {
-                I = i;
-                J = j;
+		{	if (arr[i][j] != 0)
+			{
+				min = arr[i][j + 1];
+				if (arr[i + 1][j] < min)
+					min = arr[i + 1][j];
+				if (arr[i + 1][j + 1] < min)
+					min = arr[i + 1][j + 1];
+				arr[i][j] = min + arr[i][j];
+            	if (arr[i][j] >= arr[I][J])
+            	{
+            		I = i;
+                	J = j;
+            	}
             }
 			j--;
 		}
 		i--;
 	}
-//---------------------------------------------------------------------------
-	i = 0;                                          //printing
-	while (i < len - 2)
-	{
-		j = 0;
-		while (j < width)
-		{
-			printf("%d", arr[i][j]);
-			j++;
-		}
-		i++;
-		printf("\n");
-	}
-	printf("\nMAX VALUE: %d, arr[%d][%d].\n\n", arr[I][J], I, J);
-	printf("(then we send MAX and it's coordinates to the main function");
-	printf("\nand replace corresponding elements with xxxx)\n");
+	printf("MAX = %d a[%d][%d]\n\n", arr[I][J], I, J);
 //---------------------------------------------------------------------------
 }

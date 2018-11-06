@@ -17,7 +17,7 @@ int		main(int argc, char **argv)
 	int		fd;
 	int		i;
 	char	*str;
-	int **map;
+	int 	**map;
 
 	i = 1;
 //	if (argc == 1)
@@ -42,14 +42,15 @@ int		main(int argc, char **argv)
 				}
 				else
 				{
-					printf("str =\n %s\n", str);	
+					printf("str =\n%s\n", str);	
 					printf("line count = %d\n", check_line_count(str));
 					printf("width = %d\n", check_width(str));
 					map = map_builder(str, check_line_count(str), check_width(str), return_params(str, 'o'));
 					print_array(map, check_line_count(str) + 1, check_width(str) + 1);
 					printf("\n");
 			//		map_builder(str, check_line_count(str), check_width(str));
-					ft_finder(map, check_line_count(str) + 1, check_width(str) + 1);
+					ft_finder(map, check_line_count(str), check_width(str));
+					print_array(map, check_line_count(str) + 1, check_width(str) + 1);
 				}
 			}
 			close(fd);

@@ -34,7 +34,7 @@ int		check_first_line_and_symbols(char *str);
 int     check_input_map(char *str);
 int     **map_builder(char *str, int lines, int width, char obctacle);
 void    print_array(int **array, int len, int width);
-void	ft_finder(int **array, int len, int width);
+void	ft_finder(int **arr, int len, int width);
 char    return_params(char *str, char i);
 #endif
 

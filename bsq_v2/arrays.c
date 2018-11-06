@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "header.h"
+#include <unistd.h>
 
 int		**map_builder(char *str, int lines, int width, char obstacle)
 {
@@ -48,17 +49,15 @@ void	print_array(int **array, int len, int width)
 {
 	int i;
 	int j;
-	char c;
 
 	i = 0;
-	c = '0';
 	while (i < len)
-	{	
+	{
+		printf("%3d|", i);	
 		j = 0;
 		while (j < width)
 		{
-			c = array[i][j] + '0';
-			write(1, &c, 1);
+			printf("%2d", array[i][j]);
 			j++;		
 		}
 		write(1, "\n", 1);
