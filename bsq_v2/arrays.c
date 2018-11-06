@@ -6,7 +6,7 @@
 /*   By: kkihn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/06 11:29:04 by kkihn             #+#    #+#             */
-/*   Updated: 2018/11/06 19:36:27 by kkihn            ###   ########.fr       */
+/*   Updated: 2018/11/06 20:05:32 by kkihn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int		**map_builder(char *str, int lines, int width, char obstacle)
 		map[i] = (int*)malloc(sizeof(int) * (width + 1));
 		while (*str != '\n')
 		{
-			map[i][j] = (*str == obstacle) ? 1 : 0;
+			map[i][j] = (*str == obstacle) ? 0 : 1;
 			str++;
 			j++;
 		}
